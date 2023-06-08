@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Sidebar from "../components/Sidebar";
+import RouteGuard from "../guards/RoutesGuard.js";
 
 import { ChatContext } from "../provider/chatProvider.js";
 
@@ -7,11 +8,13 @@ function HomeChat() {
   const { searchUser } = useContext(ChatContext);
 
   return (
-    <div className="home">
-      <div className="container">
-        <Sidebar />
+    <RouteGuard>
+      <div className="home">
+        <div className="container">
+          <Sidebar />
+        </div>
       </div>
-    </div>
+    </RouteGuard>
   );
 }
 

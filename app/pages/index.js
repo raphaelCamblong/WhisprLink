@@ -1,31 +1,22 @@
 import { useContext, useEffect } from "react";
 import { ChatContext } from "../provider/chatProvider.js";
-import { useRouter } from "next/router";
+import RouteGuard from "../guards/RoutesGuard.js";
 
-import HomeChat from "./HomeChat";
+import HomeChat from "./homeChat";
 
 function Home() {
-  const router = useRouter();
-  const { isUserLoggedIn, isWalletError } = useContext(ChatContext);
+  const { isWalletConnected, connectWallet } = useContext(ChatContext);
 
   useEffect(() => {
-    // connectWallet();
+    if (!isWalletConnected) connectWallet();
   }, []);
 
-  useEffect(() => {
-    if (isWalletError || !isUserLoggedIn) {
-      router.push("/login");
-    }
-  }, [isWalletError, isUserLoggedIn, router]);
-
-  if (isWalletError || !isUserLoggedIn) {
-    return null; // Render nothing while redirecting
-  }
-
   return (
-    <div className="bg-gray-200">
-      <HomeChat />
-    </div>
+    <RouteGuard>
+      <div className="bg-gray-200">
+        <HomeChat />
+      </div>
+    </RouteGuard>
   );
 }
 

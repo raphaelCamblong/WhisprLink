@@ -1,7 +1,8 @@
 class User {
-  constructor(name, profilepictureURL) {
-    this.name = "name";
-    this.profilepictureURL = "profilepictureURL";
+  constructor() {
+    this.name = "Brandon";
+    this.pictureURL =
+      "http://jumanjipets.co.uk/wp-content/uploads/2018/02/koi.jpg";
     this.uid = "uid";
   }
 }

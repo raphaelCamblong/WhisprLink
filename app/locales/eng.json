@@ -1,9 +1,23 @@
 {
   "app.name": "WhisprLink",
   "app.SomethingWentWrong": "Something went wrong",
+  "app.logout": "Logout",
+
   "search.userNotFound": "User not found!",
   "search.userFound": "",
+
   "login.SignIn": "Sign in",
-  "login.noAccount": "You don't have an account? Register",
-  "login.title": "Login"
+  "login.noAccount": "You don't have an account? Register by clicking on me!",
+  "login.title": "Login",
+  "login.emailPlaceholder": "Email",
+  "login.passwordPlaceholder": "Password",
+
+  "register.title": "Register",
+  "register.displayNamePlaceholder": "Name",
+  "register.emailPlaceholder": "Email",
+  "register.passwordPlaceholder": "Password",
+  "register.addAvatar": "Add an avatar",
+  "register.signUp": "Let's go!",
+  "register.uploadingImage": "Uploading and compressing the image, please wait...",
+  "register.haveAccount": "You do have an account?"
 }
