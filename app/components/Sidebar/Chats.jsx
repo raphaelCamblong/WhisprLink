@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ChatContext } from "../../provider/chatProvider.js";
 
 const Chats = () => {
+  const { t } = useTranslation();
   const [chats, setChats] = useState([]);
 
   const { currentUser } = useContext(ChatContext);
