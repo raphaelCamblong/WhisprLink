@@ -1,4 +1,9 @@
 {
+  "name": "whispr-link",
+  "author": "Keet Sugathadasa",
+  "email": "email",
+  "license": "MIT",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -6,11 +11,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.14",
     "ethers": "^6.4.0",
     "ganache": "^7.8.0",
+    "i18next": "^22.5.1",
     "next": "latest",
+    "postcss": "^8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-i18next": "^12.3.1",
     "tailwindcss": "^3.3.2",
     "truffle": "^5.9.1",
     "web3": "^1.10.0"
