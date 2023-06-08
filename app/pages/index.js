@@ -1,13 +1,32 @@
-import styles from '../styles/Home.module.css';
-import Login from '../components/Login';
+import { useContext, useEffect } from "react";
+import { ChatContext } from "../provider/chatProvider.js";
+import { useRouter } from "next/router";
+
+import HomeChat from "./HomeChat";
 
 function Home() {
+  const router = useRouter();
+  const { isUserLoggedIn, isWalletError } = useContext(ChatContext);
+
+  useEffect(() => {
+    // connectWallet();
+  }, []);
+
+  useEffect(() => {
+    if (isWalletError || !isUserLoggedIn) {
+      router.push("/login");
+    }
+  }, [isWalletError, isUserLoggedIn, router]);
+
+  if (isWalletError || !isUserLoggedIn) {
+    return null; // Render nothing while redirecting
+  }
+
   return (
-    <div className={styles.container}>
-      <button></button>
-      <Login />
+    <div className="bg-gray-200">
+      <HomeChat />
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
