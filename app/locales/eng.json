@@ -1,0 +1,9 @@
+{
+  "app.name": "WhisprLink",
+  "app.SomethingWentWrong": "Something went wrong",
+  "search.userNotFound": "User not found!",
+  "search.userFound": "",
+  "login.SignIn": "Sign in",
+  "login.noAccount": "You don't have an account? Register",
+  "login.title": "Login"
+}
