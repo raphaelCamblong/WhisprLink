@@ -1,7 +1,7 @@
 import { ChatProvider } from "../provider/chatProvider";
 import { I18nextProvider } from "react-i18next";
 
-import "../style/globals.scss";
+import "../public/style/globals.scss";
 import i18n from "../i18n";
 
 function MyApp({ Component, pageProps }) {
