@@ -9,33 +9,30 @@ function RouteGuard({ children }) {
 
   useEffect(() => {
     authCheck(router.asPath);
-
-    const hideContent = () => setAuthorized(false);
-    router.events.on("routeChangeStart", hideContent);
     router.events.on("routeChangeComplete", authCheck);
 
-    console.log(isUserLoggedIn, isWalletConnected);
     return () => {
-      router.events.off("routeChangeStart", hideContent);
       router.events.off("routeChangeComplete", authCheck);
     };
   }, [isUserLoggedIn, isWalletConnected]);
 
   function authCheck(url) {
-    const publicPaths = ["/login", "/register"];
+    const publicPaths = ["/login", "/register", "/connectWallet"];
     const path = url.split("?")[0];
 
-    if (
-      (!isUserLoggedIn || !isWalletConnected) &&
-      !publicPaths.includes(path)
-    ) {
-      setAuthorized(false);
-      router.push({
-        pathname: "/login",
-        query: { returnUrl: router.asPath },
-      });
-    } else {
+    if (publicPaths.includes(path) || (isWalletConnected && isUserLoggedIn)) {
       setAuthorized(true);
+      return;
+    }
+
+    setAuthorized(false);
+    if (!isWalletConnected) {
+      router.push("/connectWallet");
+      return;
+    }
+    if (!isUserLoggedIn) {
+      router.push("/login");
+      return;
     }
   }
 

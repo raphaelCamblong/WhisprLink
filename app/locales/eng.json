@@ -19,5 +19,8 @@
   "register.addAvatar": "Add an avatar",
   "register.signUp": "Let's go!",
   "register.uploadingImage": "Uploading and compressing the image, please wait...",
-  "register.haveAccount": "You do have an account?"
+  "register.haveAccount": "You do have an account?",
+
+  "connectWallet.title": "Connect Wallet",
+  "connectWallet.boutton": "Connect to MetaMask"
 }
