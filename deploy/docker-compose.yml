@@ -3,8 +3,8 @@ version: "3.4"
 services:
   ganache:
     build:
-      context: .
-      dockerfile: Ganache/Dockerfile
+      dockerfile: ../deploy/Ganache/Dockerfile
+      context: ../blockchain
     ports:
       - 8545:8545
     networks:
@@ -12,8 +12,8 @@ services:
 
   truffle:
     build:
-      context: ../blockchain
       dockerfile: ../deploy/Truffle/Dockerfile
+      context: ../blockchain
     depends_on:
       - ganache
     networks:
@@ -21,19 +21,18 @@ services:
     volumes:
       - .:/app
       - /home/app/node_modules
-    # restart: on-failure:5
+    restart: on-failure:5
 
-  # app:
-  #   build:
-  #     context: ../app
-  #     dockerfile: ../deploy/App/Dockerfile
-  #   ports:
-  #     - 3000:3000
-  #   depends_on:
-  #     - ganache
-  #     - truffle
-  #   networks:
-  #     - backend
+  app:
+    build:
+      context: ../app
+      dockerfile: ../deploy/App/Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - ganache
+    networks:
+      - backend
 
 networks:
   backend:
